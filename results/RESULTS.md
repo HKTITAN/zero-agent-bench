@@ -6,6 +6,10 @@ Raw run: `results/raw/2026-05-19T09-53-49-316Z/` · 56 task cells
 
 > **Partial run:** 56/90 cells completed (API credits exhausted mid-run). Re-run missing tasks with `npm run bench -- --filter <id>` after topping up credits.
 
+## Key finding for upstream
+
+**51 of 55 (93%) of all error-code citations in agent fix-loops point at codes that `zero explain` cannot explain** on Zero 0.1.3. Detailed analysis and coverage probe: [vercel-labs/zero#111](https://github.com/vercel-labs/zero/issues/111#issuecomment-4487067727). Draft `zero explain` entries for the top-4 missing codes (TYP001, TYP002, STD002, IMP001): [vercel-labs/zero#92](https://github.com/vercel-labs/zero/pull/92#issuecomment-4487098803).
+
 # zero-agent-bench results
 
 Run: 2026-05-19T09-53-49-316Z
