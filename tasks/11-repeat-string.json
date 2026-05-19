@@ -1,0 +1,13 @@
+{
+  "id": "11-repeat-string",
+  "title": "Repeat a string K times",
+  "difficulty": "easy",
+  "tags": ["args", "strings", "loop"],
+  "prompt": "Read two command-line arguments: a string S, then a non-negative integer K (0 ≤ K ≤ 100). Print S concatenated K times, followed by a single newline. If K is 0, print only the newline.",
+  "testCases": [
+    { "name": "thrice", "args": ["ab", "3"], "expectedStdout": "ababab\n" },
+    { "name": "once", "args": ["zero", "1"], "expectedStdout": "zero\n" },
+    { "name": "zero-times", "args": ["nope", "0"], "expectedStdout": "\n" },
+    { "name": "single-char", "args": ["x", "5"], "expectedStdout": "xxxxx\n" }
+  ]
+}

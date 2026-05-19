@@ -1,0 +1,14 @@
+{
+  "id": "07-count-vowels",
+  "title": "Count lowercase vowels in a string",
+  "difficulty": "easy",
+  "tags": ["args", "strings", "iteration"],
+  "prompt": "Read the first command-line argument as an ASCII string. Count the lowercase vowels (a, e, i, o, u) it contains. Print the count as a decimal integer followed by a single newline.",
+  "testCases": [
+    { "name": "hello", "args": ["hello"], "expectedStdout": "2\n" },
+    { "name": "none", "args": ["xyz"], "expectedStdout": "0\n" },
+    { "name": "all", "args": ["aeiou"], "expectedStdout": "5\n" },
+    { "name": "mixed", "args": ["banana"], "expectedStdout": "3\n" },
+    { "name": "uppercase-ignored", "args": ["AEIOU"], "expectedStdout": "0\n" }
+  ]
+}

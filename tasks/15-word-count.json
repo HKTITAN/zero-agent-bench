@@ -1,0 +1,14 @@
+{
+  "id": "15-word-count",
+  "title": "Count words in stdin",
+  "difficulty": "medium",
+  "tags": ["stdin", "strings", "parse"],
+  "prompt": "Read all bytes from the file whose path is the first command-line argument. Count the number of whitespace-separated words it contains (a 'word' is any maximal non-empty run of non-whitespace ASCII bytes; whitespace is space, tab, carriage return, or newline). Print the count as a decimal integer followed by a single newline.",
+  "testCases": [
+    { "name": "three-words", "stdin": "hello world zero\n", "expectedStdout": "3\n" },
+    { "name": "empty", "stdin": "", "expectedStdout": "0\n" },
+    { "name": "only-spaces", "stdin": "   \t\n  \n", "expectedStdout": "0\n" },
+    { "name": "multiline", "stdin": "one two\nthree four five\n", "expectedStdout": "5\n" },
+    { "name": "leading-trailing", "stdin": "  hi  there  ", "expectedStdout": "2\n" }
+  ]
+}

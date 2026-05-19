@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.zero/
+reference/.zero/
+results/raw/
+.env
+.env.local
+*.log

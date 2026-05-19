@@ -1,0 +1,13 @@
+{
+  "id": "08-factorial",
+  "title": "Factorial of a small N",
+  "difficulty": "easy",
+  "tags": ["args", "arithmetic", "loop"],
+  "prompt": "Read a non-negative integer N (0 ≤ N ≤ 12) from the first command-line argument. Print N! (the factorial of N) as a decimal integer followed by a single newline. Note: 0! is 1.",
+  "testCases": [
+    { "name": "zero", "args": ["0"], "expectedStdout": "1\n" },
+    { "name": "one", "args": ["1"], "expectedStdout": "1\n" },
+    { "name": "five", "args": ["5"], "expectedStdout": "120\n" },
+    { "name": "ten", "args": ["10"], "expectedStdout": "3628800\n" }
+  ]
+}

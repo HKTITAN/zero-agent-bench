@@ -1,0 +1,13 @@
+{
+  "id": "03-even-odd",
+  "title": "Even or odd",
+  "difficulty": "easy",
+  "tags": ["args", "arithmetic"],
+  "prompt": "Read a single non-negative integer from the first command-line argument. Print 'even' if it is divisible by 2, otherwise print 'odd'. Always print a single trailing newline.",
+  "testCases": [
+    { "name": "even", "args": ["4"], "expectedStdout": "even\n" },
+    { "name": "odd", "args": ["7"], "expectedStdout": "odd\n" },
+    { "name": "zero", "args": ["0"], "expectedStdout": "even\n" },
+    { "name": "one", "args": ["1"], "expectedStdout": "odd\n" }
+  ]
+}

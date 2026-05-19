@@ -1,0 +1,13 @@
+{
+  "id": "14-sort-three",
+  "title": "Sort three integers ascending",
+  "difficulty": "medium",
+  "tags": ["args", "comparison", "sorting"],
+  "prompt": "Read three non-negative integers from the first three command-line arguments. Print them in ascending order on a single line, separated by single spaces, followed by a newline.",
+  "testCases": [
+    { "name": "already", "args": ["1", "2", "3"], "expectedStdout": "1 2 3\n" },
+    { "name": "reversed", "args": ["9", "5", "1"], "expectedStdout": "1 5 9\n" },
+    { "name": "middle-min", "args": ["7", "2", "9"], "expectedStdout": "2 7 9\n" },
+    { "name": "duplicates", "args": ["4", "4", "1"], "expectedStdout": "1 4 4\n" }
+  ]
+}

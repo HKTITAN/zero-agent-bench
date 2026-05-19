@@ -1,0 +1,15 @@
+{
+  "id": "13-fibonacci",
+  "title": "Nth Fibonacci number",
+  "difficulty": "medium",
+  "tags": ["args", "arithmetic", "loop"],
+  "prompt": "Read a non-negative integer N (0 ≤ N ≤ 30) from the first command-line argument. Print the Nth Fibonacci number followed by a single newline. The sequence begins with fib(0) = 0, fib(1) = 1, fib(2) = 1, fib(3) = 2, and so on.",
+  "testCases": [
+    { "name": "zero", "args": ["0"], "expectedStdout": "0\n" },
+    { "name": "one", "args": ["1"], "expectedStdout": "1\n" },
+    { "name": "two", "args": ["2"], "expectedStdout": "1\n" },
+    { "name": "ten", "args": ["10"], "expectedStdout": "55\n" },
+    { "name": "twenty", "args": ["20"], "expectedStdout": "6765\n" },
+    { "name": "thirty", "args": ["30"], "expectedStdout": "832040\n" }
+  ]
+}

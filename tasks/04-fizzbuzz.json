@@ -1,0 +1,24 @@
+{
+  "id": "04-fizzbuzz",
+  "title": "FizzBuzz to N",
+  "difficulty": "easy",
+  "tags": ["args", "control-flow", "arithmetic"],
+  "prompt": "Read a single positive integer N (1 ≤ N ≤ 100) from the first command-line argument. Print FizzBuzz from 1 to N inclusive, one value per line, each followed by '\\n'. For multiples of 3 print 'Fizz', for multiples of 5 print 'Buzz', for multiples of both print 'FizzBuzz', otherwise print the number.",
+  "testCases": [
+    {
+      "name": "n5",
+      "args": ["5"],
+      "expectedStdout": "1\n2\nFizz\n4\nBuzz\n"
+    },
+    {
+      "name": "n15",
+      "args": ["15"],
+      "expectedStdout": "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz\n"
+    },
+    {
+      "name": "n1",
+      "args": ["1"],
+      "expectedStdout": "1\n"
+    }
+  ]
+}

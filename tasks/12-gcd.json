@@ -1,0 +1,14 @@
+{
+  "id": "12-gcd",
+  "title": "Greatest common divisor",
+  "difficulty": "medium",
+  "tags": ["args", "arithmetic", "loop"],
+  "prompt": "Read two positive integers A and B (1 ≤ A, B ≤ 1000000) from the first two command-line arguments. Print their greatest common divisor (GCD) followed by a single newline.",
+  "testCases": [
+    { "name": "coprime", "args": ["7", "11"], "expectedStdout": "1\n" },
+    { "name": "even", "args": ["12", "18"], "expectedStdout": "6\n" },
+    { "name": "divisor", "args": ["100", "25"], "expectedStdout": "25\n" },
+    { "name": "ones", "args": ["1", "1"], "expectedStdout": "1\n" },
+    { "name": "large", "args": ["462", "1071"], "expectedStdout": "21\n" }
+  ]
+}

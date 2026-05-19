@@ -1,0 +1,13 @@
+{
+  "id": "02-add",
+  "title": "Add two non-negative integers from args",
+  "difficulty": "easy",
+  "tags": ["args", "arithmetic", "parse"],
+  "prompt": "Read two command-line arguments, parse each as a non-negative i32, and print their sum followed by a newline. Both inputs are guaranteed to be valid non-negative decimal integers that fit in i32, and their sum fits in i32.",
+  "testCases": [
+    { "name": "small", "args": ["2", "3"], "expectedStdout": "5\n" },
+    { "name": "zero", "args": ["0", "0"], "expectedStdout": "0\n" },
+    { "name": "larger", "args": ["1000", "234"], "expectedStdout": "1234\n" },
+    { "name": "asymmetric", "args": ["7", "100"], "expectedStdout": "107\n" }
+  ]
+}

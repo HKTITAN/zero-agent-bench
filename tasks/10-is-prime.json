@@ -1,0 +1,15 @@
+{
+  "id": "10-is-prime",
+  "title": "Primality test",
+  "difficulty": "medium",
+  "tags": ["args", "arithmetic", "loop"],
+  "prompt": "Read a positive integer N (2 ≤ N ≤ 1000000) from the first command-line argument. Print 'yes' if N is prime, otherwise print 'no'. Always print a trailing newline.",
+  "testCases": [
+    { "name": "two", "args": ["2"], "expectedStdout": "yes\n" },
+    { "name": "three", "args": ["3"], "expectedStdout": "yes\n" },
+    { "name": "four", "args": ["4"], "expectedStdout": "no\n" },
+    { "name": "seventeen", "args": ["17"], "expectedStdout": "yes\n" },
+    { "name": "ninety-one", "args": ["91"], "expectedStdout": "no\n" },
+    { "name": "large-prime", "args": ["7919"], "expectedStdout": "yes\n" }
+  ]
+}

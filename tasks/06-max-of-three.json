@@ -1,0 +1,13 @@
+{
+  "id": "06-max-of-three",
+  "title": "Maximum of three integers",
+  "difficulty": "easy",
+  "tags": ["args", "comparison", "arithmetic"],
+  "prompt": "Read three command-line arguments, parse each as a non-negative i32, and print the largest of the three followed by a single newline.",
+  "testCases": [
+    { "name": "ascending", "args": ["1", "2", "3"], "expectedStdout": "3\n" },
+    { "name": "middle", "args": ["5", "9", "2"], "expectedStdout": "9\n" },
+    { "name": "first", "args": ["100", "3", "7"], "expectedStdout": "100\n" },
+    { "name": "ties", "args": ["4", "4", "4"], "expectedStdout": "4\n" }
+  ]
+}

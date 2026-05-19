@@ -1,0 +1,13 @@
+{
+  "id": "05-reverse-string",
+  "title": "Reverse an ASCII string",
+  "difficulty": "easy",
+  "tags": ["args", "strings", "bytes"],
+  "prompt": "Read the first command-line argument as an ASCII string and print it reversed, followed by a single newline. The input is guaranteed to contain only printable ASCII bytes (no multi-byte characters).",
+  "testCases": [
+    { "name": "hello", "args": ["hello"], "expectedStdout": "olleh\n" },
+    { "name": "palindrome", "args": ["racecar"], "expectedStdout": "racecar\n" },
+    { "name": "with-space", "args": ["a b c"], "expectedStdout": "c b a\n" },
+    { "name": "single", "args": ["x"], "expectedStdout": "x\n" }
+  ]
+}

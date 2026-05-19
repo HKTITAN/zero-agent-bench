@@ -1,0 +1,11 @@
+use std.args
+
+pub fun main(world: World) -> Void raises {
+    let first = std.args.get(1)
+    if first.has {
+        check world.out.write(first.value)
+        check world.out.write("\n")
+    } else {
+        check world.out.write("missing\n")
+    }
+}
