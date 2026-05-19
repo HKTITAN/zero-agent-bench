@@ -3,7 +3,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { spawn } from "node:child_process";
 import { runTask } from "./runner.ts";
-import { loadAllTasks, filterTasks } from "./tasks.ts";
+import { loadAllTasks, filterTasks, REMAINING_TASK_PREFIXES } from "./tasks.ts";
 import { loadZeroSkillsForAgent, loadSkillFile } from "./skills.ts";
 import { loadBenchEnv } from "./env.ts";
 import type { Language, ModelId, RunResult } from "./types.ts";
@@ -14,7 +14,8 @@ const ROOT = join(__dirname, "..");
 interface Args {
   models: ModelId[];
   languages: Language[];
-  filter?: string;
+  filters: string[];
+  remaining: boolean;
   pilot: boolean;
   maxAttempts: number;
   skipZeroSkills: boolean;
@@ -30,6 +31,8 @@ function parseArgs(argv: string[]): Args {
   const args: Args = {
     models: ["claude-haiku-4-5-20251001"],
     languages: ["zero", "python"],
+    filters: [],
+    remaining: false,
     pilot: false,
     maxAttempts: 3,
     skipZeroSkills: false,
@@ -59,7 +62,11 @@ function parseArgs(argv: string[]): Args {
         args.languages = argv[++i].split(",") as Language[];
         break;
       case "--filter":
-        args.filter = argv[++i];
+        args.filters.push(argv[++i]);
+        break;
+      case "--remaining":
+        args.remaining = true;
+        args.models = ["claude-opus-4-7", "claude-sonnet-4-6", "claude-haiku-4-5-20251001"];
         break;
       case "--max-attempts":
         args.maxAttempts = parseInt(argv[++i], 10);
@@ -106,7 +113,8 @@ Options:
   --model <id>           Run a single model.
   --models <a,b,c>       Comma-separated model ids.
   --languages <a,b>      Default zero,python. Comma-separated.
-  --filter <text>        Filter tasks by id, title substring, or tag.
+  --filter <text>        Filter tasks (repeatable: id/title/tag substring).
+  --remaining            Tasks 11–15 only, all three model tiers (resume partial full run).
   --max-attempts <n>     Max fix-loop attempts per (task, lang, model). Default 3.
   --skip-zero-skills     Do not inject official Zero skills into the system prompt.
   --skill-file <path>    Inject a pattern skill markdown file (Zero language only).
@@ -123,7 +131,8 @@ async function main() {
   const args = parseArgs(process.argv.slice(2));
 
   const allTasks = await loadAllTasks();
-  let tasks = filterTasks(allTasks, args.filter);
+  const filters = args.remaining ? REMAINING_TASK_PREFIXES : args.filters;
+  let tasks = filterTasks(allTasks, filters.length > 0 ? filters : undefined);
   if (args.pilot) tasks = tasks.slice(0, 5);
 
   if (tasks.length === 0) {

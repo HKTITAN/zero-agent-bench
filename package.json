@@ -8,7 +8,9 @@
     "bench": "tsx src/cli.ts",
     "bench:pilot": "tsx src/cli.ts --pilot",
     "bench:full": "tsx src/cli.ts --full",
+    "bench:remaining": "tsx src/cli.ts --remaining --report",
     "report": "tsx src/aggregate.ts",
+    "report:merge": "node scripts/merge-runs.mjs 2026-05-19T09-53-49-316Z",
     "test:adapters": "tsx src/test-harness.ts",
     "typecheck": "tsc --noEmit"
   },

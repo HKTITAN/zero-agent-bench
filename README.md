@@ -49,6 +49,10 @@ npm run bench -- --model claude-sonnet-4-6 --skip-zero-skills
 npm run bench -- --model claude-sonnet-4-6
 
 npm run report
+
+# Resume tasks 11–15 after a partial full run, then merge:
+npm run bench:remaining
+npm run report:merge -- <remaining-run-id>   # append run id to scripts/merge-runs.mjs args in package.json
 ```
 
 ## Requirements

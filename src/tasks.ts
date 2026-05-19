@@ -23,11 +23,23 @@ export async function loadAllTasks(): Promise<Task[]> {
   return tasks;
 }
 
-export function filterTasks(tasks: Task[], filter?: string): Task[] {
-  if (!filter) return tasks;
+export function filterTasks(tasks: Task[], filters?: string[]): Task[] {
+  if (!filters || filters.length === 0) return tasks;
   return tasks.filter((t) =>
-    t.id.includes(filter) ||
-    t.title.toLowerCase().includes(filter.toLowerCase()) ||
-    t.tags.includes(filter),
+    filters.some(
+      (filter) =>
+        t.id.includes(filter) ||
+        t.title.toLowerCase().includes(filter.toLowerCase()) ||
+        t.tags.includes(filter),
+    ),
   );
 }
+
+/** Tasks 11–15 from a partial full run (API credits often stop around task 12). */
+export const REMAINING_TASK_PREFIXES = [
+  "11-repeat",
+  "12-gcd",
+  "13-fibonacci",
+  "14-sort",
+  "15-word",
+];
