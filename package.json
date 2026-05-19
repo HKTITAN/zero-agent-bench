@@ -7,6 +7,7 @@
   "scripts": {
     "bench": "tsx src/cli.ts",
     "bench:pilot": "tsx src/cli.ts --pilot",
+    "bench:full": "tsx src/cli.ts --full",
     "report": "tsx src/aggregate.ts",
     "test:adapters": "tsx src/test-harness.ts",
     "typecheck": "tsc --noEmit"

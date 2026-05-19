@@ -2,6 +2,10 @@
 
 A reproducible benchmark of frontier LLMs writing programs in [Zero](https://zerolang.ai) versus Python.
 
+- **Language:** [zerolang.ai](https://zerolang.ai) · [Getting started](https://zerolang.ai/getting-started)
+- **Upstream:** [vercel-labs/zero](https://github.com/vercel-labs/zero)
+- **Pattern skills:** [HKTITAN/zero-skills](https://github.com/HKTITAN/zero-skills)
+
 Zero is positioned as "the programming language for agents." This benchmark measures whether that thesis holds: when an LLM is given the same task in both languages, does Zero produce higher pass rates, fewer fix-loop attempts, or fewer output tokens per successful solution?
 
 Companion to [vercel-labs/zero#104](https://github.com/vercel-labs/zero/issues/104) which observed that 100% of Zero failures cluster on PAR100 and IMP001. This harness re-runs that experiment across model tiers with a structured fix loop and reports per-diagnostic-code error distribution.
@@ -32,7 +36,7 @@ export ANTHROPIC_API_KEY=sk-ant-...
 npm run bench:pilot
 
 # Full run: 15 tasks × 2 languages × Opus 4.7 + Sonnet 4.6 + Haiku 4.5
-npm run bench -- --full
+npm run bench:full
 
 # Single model
 npm run bench -- --model claude-sonnet-4-6
@@ -71,6 +75,13 @@ The benchmark is deliberately written to be language-fair:
 - The Zero side optionally injects the `zero-language`, `zero-stdlib`, and `zero-diagnostics` skills from `zero skills get` into the system prompt. Use `--skip-zero-skills` for an ablation comparison.
 
 ## Results
+
+Published summaries:
+
+| Run | Summary |
+|-----|---------|
+| Pilot (5 tasks, Haiku) | [results/PILOT.md](results/PILOT.md) |
+| Full (15 tasks, all models) | [results/RESULTS.md](results/RESULTS.md) |
 
 After a run, `results/raw/<timestamp>/report.md` contains:
 

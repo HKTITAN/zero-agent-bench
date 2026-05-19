@@ -1,6 +1,7 @@
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { spawnSync } from "node:child_process";
 import type { RunResult } from "./types.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -131,8 +132,32 @@ async function main() {
   const csv = renderCsv(stats);
   await writeFile(join(runDir, "report.md"), md);
   await writeFile(join(runDir, "report.csv"), csv);
+
+  const runId = runDir.split(/[/\\]/).pop() ?? "unknown";
+  const expectedCells = 90;
+  const partialNote =
+    results.length < expectedCells
+      ? `\n> **Partial run:** ${results.length}/${expectedCells} cells completed (API credits exhausted mid-run). Re-run missing tasks with \`npm run bench -- --filter <id>\` after topping up credits.\n`
+      : "";
+  const taskTable = spawnSync(process.execPath, [join(ROOT, "scripts", "summarize-run.mjs"), runId], {
+    encoding: "utf8",
+    cwd: ROOT,
+  }).stdout.trim();
+  const published = [
+    `# Benchmark results`,
+    ``,
+    `Language: [Zero](https://zerolang.ai) · [Getting started](https://zerolang.ai/getting-started)`,
+    ``,
+    `Raw run: \`results/raw/${runId}/\` · ${results.length} task cells`,
+    partialNote,
+    md.trimStart(),
+    taskTable ? `\n${taskTable}\n` : "",
+  ].join("\n");
+  await writeFile(join(ROOT, "results", "RESULTS.md"), published + "\n");
+
   console.log(md);
   console.log(`\nWrote report.md and report.csv to ${runDir}/`);
+  console.log(`Published summary to results/RESULTS.md`);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });
